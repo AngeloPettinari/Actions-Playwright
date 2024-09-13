@@ -6,9 +6,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@playwright/test": "^1.47.0",
     "@types/node": "^22.5.4"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "browser": "^0.2.6",
+    "playwright": "^1.47.0",
+    "playwright-core": "^1.47.0",
+    "undici-types": "^6.19.8"
+  },
+  "description": ""
 }

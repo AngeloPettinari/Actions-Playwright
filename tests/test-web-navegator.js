@@ -1,27 +1,6 @@
-// @ts-check
-const { test, expect } = require('@playwright/test');
-
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://partners-dev.drvn.com/#/login');
-
-
-  await page.getByRole('link', { name: 'Enter Mobile Number' }).click();
-  await page.close();
-
-
-
-});
+import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://partners-dev.drvn.com/#/login');
-
   await page.getByPlaceholder('Enter Mobile Number').click();
   await page.getByPlaceholder('Enter Mobile Number').fill('(317) 983-3835');
   await page.getByRole('button', { name: 'SIGN IN' }).click();
@@ -45,4 +24,3 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'save outline SAVE' }).click();
   await page.getByRole('button', { name: 'menu' }).click();
   await page.getByText('Home').click();
-});
