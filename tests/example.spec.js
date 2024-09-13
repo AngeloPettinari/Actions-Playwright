@@ -10,9 +10,9 @@ test('has title', async ({ page }) => {
 
 test('get started link', async ({ page }) => {
   await page.goto('https://partners-dev.drvn.com/#/login');
-
-
+  await page.getByRole('img').click();
   await page.getByRole('link', { name: 'Enter Mobile Number' }).click();
+  await expect(page.getByRole('textbox', { name: 'Mobile Number' })).toBeVisible();
   await page.close();
 
 
@@ -21,7 +21,6 @@ test('get started link', async ({ page }) => {
 
 test('test', async ({ page }) => {
   await page.goto('https://partners-dev.drvn.com/#/login');
-
   await page.getByPlaceholder('Enter Mobile Number').click();
   await page.getByPlaceholder('Enter Mobile Number').fill('(317) 983-3835');
   await page.getByRole('button', { name: 'SIGN IN' }).click();
