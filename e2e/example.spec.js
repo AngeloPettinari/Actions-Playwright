@@ -1,6 +1,7 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
-const { chromium, devices } = require('playwright');
+const { test, expect, devices } = require('@playwright/test');
+// @ts-ignore
+const { chromium } = require('playwright');
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -15,6 +16,7 @@ test('get started link', async ({ page }) => {
   await page.getByPlaceholder('Enter Mobile Number').click();
   await page.getByPlaceholder('Enter Mobile Number').fill('(317) 983-3835');
   await page.getByRole('button', { name: 'SIGN IN' }).click();
+  await page.waitForTimeout(1000);  
   await page.getByRole('textbox').first().click();
   await page.getByRole('textbox').first().fill('4');
   await page.getByRole('textbox').nth(1).fill('4');
@@ -27,13 +29,8 @@ test('get started link', async ({ page }) => {
  
 });
 
-test('drvn cc test', async ({ page }) => {
-  await page.goto("https://drvn.cc/onboarding/slides");
-  page.close();
 
-});
-
-(async () => {
+test('drvn cc test en iPhone 11 Pro', async ({}) => {
   const iPhone11 = devices['iPhone 11 Pro'];
 
   const browser = await chromium.launch({ headless: false });
@@ -45,10 +42,9 @@ test('drvn cc test', async ({ page }) => {
   });
 
   const page = await context.newPage();
-  await page.goto('https://drvn.cc/onboarding/welcome');
-  await page.getByRole('img').click(); 
-  await page.getByRole('link', { name: 'Enter Mobile Number' }).click();
-  await page.waitForSelector('input[name="mobileNumber"]')
+  
+  await page.goto("https://drvn.cc/onboarding/slides");
 
+  await page.close();
   await browser.close();
-})();
+});
