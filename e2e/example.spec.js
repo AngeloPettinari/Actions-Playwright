@@ -8,7 +8,7 @@ test('has title', async ({ page }) => {
 
   
   await expect(page).toHaveTitle(/Playwright/);
-  await page.close();
+  await page.close();d
 });
 
 test('get started link', async ({ page }) => {
@@ -48,3 +48,10 @@ test('drvn cc test en iPhone 11 Pro', async ({}) => {
   await page.close();
   await browser.close();
 });
+
+
+
+
+
+
+
